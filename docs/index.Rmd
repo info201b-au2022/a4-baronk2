@@ -11,24 +11,61 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-One of the sharpest manifestations of racism in the United States is its prison system, a complex set of social and political structures. This site _exposes the patterns of inequality_ using incarceration data collected by the [Vera Institute](https://www.vera.org/). 
+One of the sharpest manifestations of racism in the United States is its prison system, a complex set of social and political structures. This site __exposes the patterns of inequality__ using incarceration data collected by the [Vera Institute](https://www.vera.org/). 
 
-[Canvas Assignment Overview]( https://canvas.uw.edu/courses/1616427/assignments/7569461#:~:text=learn%20from%20it%3F%3E-,Overview,-One%20of%20the)
+(Abstract material included from [Canvas Assignment Overview]( https://canvas.uw.edu/courses/1616427/assignments/7569461#:~:text=learn%20from%20it%3F%3E-,Overview,-One%20of%20the))
 
 
 ## Introduction 
 
+Incarceration in the United States represents a highly intersectional problem. It involves a complex set of social and political structures, including the [over-policing](https://www.pewresearch.org/fact-tank/2020/06/03/10-things-we-know-about-race-and-policing-in-the-u-s/). of individuals of color and the [war on drugs](https://drugpolicy.org/issues/race-and-drug-war), which have led to the disproportionate incarceration of people of color. These issues are _very_ well summarized in the documentary __[13th]( https://www.youtube.com/watch?v=krfcq5pF8u8)__.
 
+(Introductory material included from [Canvas Assignment Overview]( https://canvas.uw.edu/courses/1616427/assignments/7569461#:~:text=learn%20from%20it%3F%3E-,Overview,-One%20of%20the))
 
+The people, families, and neighborhoods that are implicated by or otherwise connected with this data are the direct stakeholders of the dataset. Less direct stakeholders would be the prisons, which could use comprehensive data to better understand how their respective counties and states compare to others, and the counties and states themselves, which could similarly utilize the comprehensive data to better understand how they fit into the larger subset and adjust policies and propose referendums accordingly.
 
+Because of this set of stakeholders, the values of civil justice, equality, and transparency must be held central and engaged throughout the process of data analysis.
+
+Questions addressed through the report include the following:
+
+1.	How has the US prison population changed from 1970 to 2017?
+
+2.	How have each of the states’ prison populations changed from 1970 to 2017?
+
+3.	How does disproportionality of incarceration of Black people vary with county population for all US counties?
+
+4.	Where are the counties with the most disproportional Black incarceration rates located across the country?
 
 
 ## Data Summary 
 
+```{r echo=FALSE, eval=TRUE, message=FALSE}
+
+total_US_prison_population_2017 <- get_total_US_prison_population_2017()
+max_2017_prison_population_state <- get_max_2017_prison_population_state()
+max_state_2017_prison_population <- get_max_state_2017_prison_population()
+average_state_2017_prison_population <- get_average_state_2017_prison_population()
+black_incarceration_disproportionality_US_2017 <- get_black_incarceration_disproportionality_US_2017()
+
+```
+
+In 2017, there were `r prettyNum(total_US_prison_population_2017, big.mark = ",")` people incarcerated in prisons in the United States. `r max_2017_prison_population_state` had the most prisoners that year, at `r prettyNum(max_state_2017_prison_population, big.mark = ",")` people incarcerated, with the average state prison population being `r prettyNum(average_state_2017_prison_population, digits = 0, big.mark = ",")` people incarcerated. Across the country, the average disproportionality of incarceration of Black individuals in 2017 was `r black_incarceration_disproportionality_US_2017`, where a disproportionality value greater than 1.0 would indicate that Black people are represented more heavily in prison systems than in the general population by a factor of this value, and a value between 0.0 and 1.0 would indicate that Black people are represented less in prison systems than in the general population by a factor of the value.
+
+
+## Growth of the U.S. Prison Population
 
 
 
 
+## Growth of Prison Population by State
 
-[TODO ... other sections ... See Canvas for details]
+
+
+
+## <variable comparison that reveals potential patterns of inequality>
+
+
+
+
+## <a map shows potential patterns of inequality that vary geographically>
 
