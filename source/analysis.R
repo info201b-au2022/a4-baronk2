@@ -10,7 +10,7 @@ source("../source/a4-helpers.R")
 ## Load data frame ---- 
 
 
-incarceration_trends <- read.csv(file = "C:/Users/Owner/Documents/Kevin/School/University_Of_Washington/Informatics/2022-2023/Autumn_2022/Info_201/info201/assignments/a4-baronk2/data/incarceration_trends.csv")
+incarceration_trends <- read.csv(file = "C:/Users/Owner/Documents/Kevin/School/University_Of_Washington/Informatics/2022-2023/Autumn_2022/Info_201/Assignments/A04/data/incarceration_trends.csv")
 # View(incarceration_trends)
 
 
