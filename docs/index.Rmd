@@ -5,7 +5,7 @@ date: '2022-11-21'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
@@ -28,9 +28,9 @@ Because of this set of stakeholders, the values of civil justice, equality, and 
 
 Questions addressed through the report include the following:
 
-1.	How has the US prison population changed from 1970 to 2017?
+1.	How has the US prison population changed from 1970 to 2018?
 
-2.	How have each of the states’ prison populations changed from 1970 to 2017?
+2.	How have each of the states’ prison populations changed from 1970 to 2018?
 
 3.	How does disproportionality of incarceration of Black people vary with county population for all US counties?
 
@@ -39,33 +39,67 @@ Questions addressed through the report include the following:
 
 ## Data Summary 
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 
-total_US_prison_population_2017 <- get_total_US_prison_population_2017()
-max_2017_prison_population_state <- get_max_2017_prison_population_state()
-max_state_2017_prison_population <- get_max_state_2017_prison_population()
-average_state_2017_prison_population <- get_average_state_2017_prison_population()
-black_incarceration_disproportionality_US_2017 <- get_black_incarceration_disproportionality_US_2017()
+total_US_prison_population_2018 <- get_total_US_prison_population_2018()
+max_2018_prison_population_state <- get_max_2018_prison_population_state()
+max_state_2018_prison_population <- get_max_state_2018_prison_population()
+average_state_2018_prison_population <- get_average_state_2018_prison_population()
+black_incarceration_disproportionality_US_2018 <- get_black_incarceration_disproportionality_US_2018()
 
 ```
 
-In 2017, there were `r prettyNum(total_US_prison_population_2017, big.mark = ",")` people incarcerated in prisons in the United States. `r max_2017_prison_population_state` had the most prisoners that year, at `r prettyNum(max_state_2017_prison_population, big.mark = ",")` people incarcerated, with the average state prison population being `r prettyNum(average_state_2017_prison_population, digits = 0, big.mark = ",")` people incarcerated. Across the country, the average disproportionality of incarceration of Black individuals in 2017 was `r black_incarceration_disproportionality_US_2017`, where a disproportionality value greater than 1.0 would indicate that Black people are represented more heavily in prison systems than in the general population by a factor of this value, and a value between 0.0 and 1.0 would indicate that Black people are represented less in prison systems than in the general population by a factor of the value.
+In 2018, there were `r prettyNum(floor(total_US_prison_population_2018), big.mark = ",")` people incarcerated in prisons in the United States. `r max_2018_prison_population_state` was the state with the most prisoners that year, at `r prettyNum(floor(max_state_2018_prison_population), big.mark = ",")` people incarcerated, with the average state prison population being `r prettyNum(floor(average_state_2018_prison_population), big.mark = ",")` people incarcerated. Across the country, the average disproportionality of incarceration of Black individuals in 2018 was `r prettyNum(black_incarceration_disproportionality_US_2018, digits = 5)`, where a disproportionality value greater than 1.0 would indicate that Black people are represented more heavily in prison systems than in the general population by a factor of this value, and a value between 0.0 and 1.0 would indicate that Black people are represented less in prison systems than in the general population by a factor of the value. A "disproportionality" of exactly 1.0 would be a misnomer, since it would in fact represent proportionality between the incarcerated and general Black populations.
 
 
 ## Growth of the U.S. Prison Population
 
 
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+
+plot_jail_pop_for_us()
+
+us_plot_summary_paragraph <- get_us_plot_summary()
+
+```
+
+`r us_plot_summary_paragraph`
 
 
 ## Growth of Prison Population by State
 
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+
+plot_jail_pop_by_states(c("CA", "NY", "WA", "WY"))
+
+states_plot_summary_paragraph <- get_states_plot_summary()
+
+```
+
+`r states_plot_summary_paragraph`
 
 
+## Disproportionality of Black Incarceration by County Population (2018)
 
-## <variable comparison that reveals potential patterns of inequality>
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+
+get_black_incarceration_disproportionality_counties_2018_plot()
+
+disproportionality_of_black_incarceration_summary_paragraph <- get_disproportionality_of_black_incarceration_summary_paragraph()
+
+```
+
+`r disproportionality_of_black_incarceration_summary_paragraph`
 
 
+## Disproportionality of Black Incarceration by US County (2018)
 
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 
-## <a map shows potential patterns of inequality that vary geographically>
+get_county_disproportionality_map()
 
+county_disproportionality_map_summary_paragraph <- get_county_disproportionality_map_summary_paragraph()
+
+```
+
+`r county_disproportionality_map_summary_paragraph`
